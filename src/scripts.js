@@ -1,14 +1,26 @@
 const displaySettings = () => {
-  const response = window.prompt('change background');
-  if (response === null || response === '') {
-    return;
-  } else {
-    localStorage.setItem('chromeextension', response);
-  }
+  swal({
+    text: 'What wallpapers would you like displayed?',
+    content: 'input',
+    buttons: ['Cancel', 'Ok']
+  }).then(value => {
+    if (value === '' || value === null) {
+      return null;
+    } else {
+      localStorage.setItem('chromeextension', value);
+      swal({
+        text: 'Success!',
+        icon: 'success',
+        timer: 2000,
+        buttons: false
+      });
+    }
+  });
+  // }
 };
 
 window.addEventListener('DOMContentLoaded', event => {
-  const keyword = localStorage.getItem('chromeextension') || 'vietnam';
+  const keyword = localStorage.getItem('chromeextension') || 'random';
   const img = new Image();
   img.src = `https://source.unsplash.com/random/?${keyword}`;
   //code wrapped in cb function to avoid background image having a delay in rendering after the text
