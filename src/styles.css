@@ -1,0 +1,43 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#background {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  /* display: grid;
+  justify-items: center;
+  align-items: center; */
+  height: 100vh;
+  position: relative;
+}
+
+#background:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, black, black);
+  opacity: 0.3;
+}
+
+img {
+  padding: 25px;
+  background: white;
+  height: 25px;
+  width: 25px;
+}
+
+#quote {
+  color: white;
+  font-size: 24px;
+  padding: 5%;
+  line-height: 2.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
