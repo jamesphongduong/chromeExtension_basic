@@ -22,14 +22,8 @@ body {
   opacity: 0.3;
 }
 
-img {
-  padding: 25px;
-  background: white;
-  height: 25px;
-  width: 25px;
-}
-
 #quote {
+  display: none;
   color: white;
   font-size: 24px;
   padding: 60px;
@@ -40,23 +34,24 @@ img {
   transform: translate(-50%, -50%);
 }
 
-#settings-icon {
-  background: url('settings.svg');
-  height: 25px;
-  width: 25px;
+#settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
   position: absolute;
   left: 50%;
-  bottom: 0px;
+  bottom: 10px;
   transform: translateX(-50%);
 }
 
-/* #settings-form {
-  display: none;
-  background: white;
-  padding: 60px;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 99;
-} */
+#settings-icon {
+  background: url('magnifier.svg');
+  height: 25px;
+  width: 25px;
+}
+
+#settings-quote {
+  background: url('quote.svg');
+  height: 25px;
+  width: 25px;
+}

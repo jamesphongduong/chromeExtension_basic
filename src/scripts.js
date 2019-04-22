@@ -1,3 +1,12 @@
+const alertSwalSuccess = () => {
+  return swal({
+    text: 'Success!',
+    icon: 'success',
+    timer: 1000,
+    buttons: false
+  });
+};
+
 const displaySettings = () => {
   swal({
     text: 'What wallpapers would you like displayed?',
@@ -8,19 +17,34 @@ const displaySettings = () => {
       return null;
     } else {
       localStorage.setItem('chromeextension', value);
-      swal({
-        text: 'Success!',
-        icon: 'success',
-        timer: 2000,
-        buttons: false
-      });
+      alertSwalSuccess();
     }
   });
-  // }
+};
+
+const displayQuoteSettings = () => {
+  swal({
+    text: 'Turn on/off quotes',
+    buttons: ['Cancel', 'Toggle']
+  }).then(value => {
+    if (value === null) {
+      return null;
+    } else {
+      localStorage.chromeextensionQuote === 'true'
+        ? localStorage.setItem('chromeextensionQuote', 'false')
+        : localStorage.setItem('chromeextensionQuote', 'true');
+    }
+    alertSwalSuccess();
+  });
 };
 
 window.addEventListener('DOMContentLoaded', event => {
-  const keyword = localStorage.getItem('chromeextension') || 'random';
+  const keyword =
+    localStorage.getItem('chromeextension') ||
+    localStorage.setItem('chromeextension', 'random');
+  const quoteState =
+    localStorage.getItem('chromeextensionQuote') ||
+    localStorage.setItem('chromeextensionQuote', 'true');
   const img = new Image();
   img.src = `https://source.unsplash.com/random/?${keyword}`;
   //code wrapped in cb function to avoid background image having a delay in rendering after the text
@@ -28,6 +52,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const bg = document.getElementById('background');
     const quote = document.getElementById('quote');
     const randomNumber = Math.floor(Math.random() * 324 + 1);
+    quoteState !== 'true' ? null : (quote.style.display = 'block');
 
     bg.style.background = `url(${img.src})`;
     bg.style.display = 'block';
