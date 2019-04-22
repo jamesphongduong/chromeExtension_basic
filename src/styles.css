@@ -32,10 +32,20 @@ img {
 #quote {
   color: white;
   font-size: 24px;
-  padding: 5%;
+  padding: 60px;
   line-height: 2.5;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.settings-icon {
+  background: url('settings.svg');
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
 }

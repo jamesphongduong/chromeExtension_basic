@@ -1,6 +1,16 @@
+const displaySettings = () => {
+  const response = window.prompt('change background');
+  if (response === null || response === '') {
+    return;
+  } else {
+    localStorage.setItem('chromeextension', response);
+  }
+};
+
 window.addEventListener('DOMContentLoaded', event => {
+  const keyword = localStorage.getItem('chromeextension') || 'vietnam';
   const img = new Image();
-  img.src = 'https://source.unsplash.com/random/?vietnam';
+  img.src = `https://source.unsplash.com/random/?${keyword}`;
   //code wrapped in cb function to avoid background image having a delay in rendering after the text
   img.onload = () => {
     const bg = document.getElementById('background');
