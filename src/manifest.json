@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Home Page Extension",
+  "description": "This extension produces a specified wallpaper with an inspirational quote on a new tab",
+  "version": "0.1",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["activeTab"],
+  "icons": {
+    "128": "icon.png"
+  }
+}

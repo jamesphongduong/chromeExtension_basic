@@ -6,11 +6,9 @@ body {
 #background {
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  /* display: grid;
-  justify-items: center;
-  align-items: center; */
   height: 100vh;
   position: relative;
+  display: none;
 }
 
 #background:before {

@@ -1,18 +1,22 @@
 window.addEventListener('DOMContentLoaded', event => {
-  const url = 'https://source.unsplash.com/random/?vietnam';
-  const bg = document.getElementById('background');
-  const quote = document.getElementById('quote');
-  const randomNumber = Math.floor(Math.random() * 324 + 1);
+  const img = new Image();
+  img.src = 'https://source.unsplash.com/random/?vietnam';
+  //code wrapped in cb function to avoid background image having a delay in rendering after the text
+  img.onload = () => {
+    const bg = document.getElementById('background');
+    const quote = document.getElementById('quote');
+    const randomNumber = Math.floor(Math.random() * 324 + 1);
 
-  bg.style.background = `url(${url})`;
-  quote.innerHTML =
-    '“' +
-    quotes[randomNumber]['text'] +
-    '”' +
-    '<br />' +
-    '- ' +
-    quotes[randomNumber]['from'];
-  console.log(quotes);
+    bg.style.background = `url(${img.src})`;
+    bg.style.display = 'block';
+    quote.innerHTML =
+      '“' +
+      quotes[randomNumber]['text'] +
+      '”' +
+      '<br />' +
+      '- ' +
+      quotes[randomNumber]['from'];
+  };
 });
 
 const quotes = [
